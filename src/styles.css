@@ -1,0 +1,85 @@
+body {
+  background-color: #2d282b;
+  margin: 0 auto;
+  padding: 4% 23%;
+}
+ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 auto;
+  position: relative;
+  top: 72px;
+  color: #fff;
+}
+.temperature {
+  border-style: dotted;
+  border-width: 5px;
+  border-color: #fff;
+  width: 267px;
+  height: 265px;
+  border-radius: 50%;
+  margin-left: 7px;
+}
+.temp {
+  font-size: 50px;
+  font-family: "Carter One", cursive;
+}
+.currentDay {
+  font-size: 20px;
+}
+.units {
+  position: relative;
+  top: -35px;
+}
+.weather-app {
+  background-image: url(images/rewallscom_55895.jpg);
+  padding: 40px 30px 40px 40px;
+  border-radius: 10px;
+}
+.search-bar {
+  padding-left: 40%;
+}
+#current-position {
+  padding-left: 30px;
+  margin: 12px 0 0 -36px;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color-scheme: #e3fdf5;
+  font-style: italic;
+  text-align: right;
+}
+
+.location {
+  text-align: right;
+}
+
+.date {
+  padding: 10px;
+  margin: 0 0 0 90px;
+  color: #fff;
+}
+.currentCity {
+  background-color: #6f6464;
+  padding: 10px;
+  margin: 0 0 0 90px;
+  color: #fff;
+  font-family: "Carter One", cursive;
+}
+.sunny-icon {
+  font-size: 100px;
+  padding-right: 148px;
+}
+.fiveday-forecast {
+  background-color: #6f6464;
+  color: #fff;
+  margin-top: 40px;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
