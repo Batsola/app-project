@@ -33,7 +33,7 @@ ul {
   top: -35px;
 }
 .weather-app {
-  background-image: url(images/rewallscom_55895.jpg);
+  background-image: linear-gradient(#ee830f, #322338, #ee830f);
   padding: 40px 30px 40px 40px;
   border-radius: 10px;
 }
