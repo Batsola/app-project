@@ -8,13 +8,32 @@ let days = [
   "Friday",
   "Saturday",
 ];
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 let day = days[now.getDay()];
 let hour = now.getHours().toString().padStart(2, "0");
 let minutes = now.getMinutes().toString().padStart(2, "0");
+let month = months[now.getMonth()];
+let date = now.getDate();
+
+let currentMonth = document.querySelector(".date");
+currentMonth.innerHTML = `${date} ${month}`;
 
 let time = `${day} ${hour}:${minutes}`;
-let currentDate = document.querySelector(".currentDay");
-currentDate.innerHTML = time;
+let currentDay = document.querySelector(".currentDay");
+currentDay.innerHTML = time;
 
 function myRequest(response) {
   let temperature = document.querySelector(".temp");
@@ -48,17 +67,11 @@ function getMyPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(myPosition);
 }
-let cityName = document.querySelector("#search-form");
-cityName.addEventListener("submit", typedCity);
-let searchButton = document.querySelector("#button-addon1");
-searchButton.addEventListener("click", typedCity);
-let currentLocationButton = document.querySelector("#current-position");
-currentLocationButton.addEventListener("click", getMyPosition);
-userCity("Antananarivo");
+
 function celsiusValue(event) {
   event.preventDefault();
   let contentCelsius = document.querySelector(".temp");
-  contentCelsius.innerHTML = "17";
+  contentCelsius.innerHTML = "12";
 }
 
 function fahrenheitValue(event) {
@@ -68,3 +81,11 @@ function fahrenheitValue(event) {
 }
 ceLink.addEventListener("click", celsiusValue);
 faLink.addEventListener("click", fahrenheitValue);
+
+let cityName = document.querySelector("#search-form");
+cityName.addEventListener("submit", typedCity);
+let searchButton = document.querySelector("#button-addon1");
+searchButton.addEventListener("click", typedCity);
+let currentLocationButton = document.querySelector("#current-position");
+currentLocationButton.addEventListener("click", getMyPosition);
+userCity("Antananarivo");

@@ -12,6 +12,12 @@ ul {
   top: 72px;
   color: #fff;
 }
+h6 {
+  color: #fff;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
 .temperature {
   border-style: dotted;
   border-width: 5px;
