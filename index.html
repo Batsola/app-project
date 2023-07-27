@@ -24,133 +24,89 @@
       src="https://kit.fontawesome.com/89d0bd21f5.js"
       crossorigin="anonymous"
     ></script>
-
-    <link rel="stylesheet" href="src/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
 
   <body>
-    <div class="weather-app">
-      <div class="row">
-        <div class="col">
-          <div class="search-bar">
-            <form action="#" id="search-form">
-              <div
-                class="p-2 bg-light rounded rounded-pill shadow-sm mb-4 border border-danger border-1"
-              >
-                <div class="input-group">
-                  <input
-                    type="search"
-                    id="search-input"
-                    placeholder="Enter your city"
-                    aria-describedby="button-addon1"
-                    class="form-control border-0 bg-light"
-                  />
-                  <div class="input-group-append icon">
-                    <button
-                      id="button-addon1"
-                      type="submit"
-                      class="btn btn-link text-danger"
-                    >
-                      <i class="fa fa-search"></i>
-                    </button>
-                  </div>
+    <div class="weather-app-wrapper">
+      <div class="weather-app">
+        <div class="searchBar">
+          <form action="#" id="search-form">
+            <div
+              class="p-2 bg-light rounded rounded-pill shadow-sm mb-4 border border-danger border-1"
+            >
+              <div class="input-group">
+                <input
+                  type="search"
+                  id="city-input"
+                  placeholder="Type a city..."
+                  aria-describedby="button-addon1"
+                  class="form-control border-0 bg-light"
+                  autocomplete="off"
+                />
+                <div class="input-group-append icon">
+                  <button
+                    id="button-addon1"
+                    type="submit"
+                    class="btn btn-link text-danger"
+                  >
+                    <i class="fa fa-search"></i>
+                  </button>
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-        <div class="col-2" id="current-position">
-          <button type="button" class="btn btn-light" id="position-button">
-            Current
-          </button>
-        </div>
-      </div>
 
-      <div class="current-temperature">
-        <div class="row text-center">
-          <div class="col-auto temperature">
-            <ul>
-              <li>
-                <span class="currentDay">Wednesday 22:00</span>
-              </li>
-              <li>
-                <span class="temp">17</span>
-                <span class="units"
-                  ><a href="#" id="celsius-link">°C </a>
-                  |
-                  <a href="#" id="fahrenheit-link">°F</a></span
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="col location">
-            <span class="sunny-icon">🌤️</span>
-            <h1 class="currentCity">Antananarivo</h1>
-            <h2 class="date"></h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="fiveday-forecast shadow-lg rounded-2 border border">
-        <div class="row text-center border-info">
-          <div class="col border-end">
-            <h4>Wed</h4>
-            <span style="font-size: 50px">🌤️</span>
-            <div class="row">
-              <div class="col">22°C</div>
-              <div class="col">9°C</div>
+        <div class="container">
+          <div class="row">
+            <!-- First column -->
+            <div class="col-md-6 general">
+              <!-- Content for the first column (first line) -->
+              <ul>
+                <li>
+                  <span id="date"></span>
+                </li>
+                <li>
+                  <span id="temperature"></span>
+                  <span class="units"
+                    ><a href="#" id="celsius-link" class="active">°C </a>
+                    |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+                </li>
+              </ul>
             </div>
-          </div>
+            <!-- Second column -->
 
-          <div class="col border-end">
-            <h4>Thu</h4>
-            <span style="font-size: 50px">☁️</span>
-            <div class="row">
-              <div class="col">24°C</div>
-              <div class="col">10°C</div>
-            </div>
-          </div>
-
-          <div class="col border-end">
-            <h4>Fri</h4>
-            <span style="font-size: 50px">🌤️</span>
-
-            <div class="row">
-              <div class="col">25°C</div>
-              <div class="col">11°C</div>
-            </div>
-          </div>
-          <div class="col border-end">
-            <h4>Sat</h4>
-            <span style="font-size: 50px">⛅️</span>
-
-            <div class="row">
-              <div class="col">26°C</div>
-              <div class="col">12°C</div>
-            </div>
-          </div>
-          <div class="col">
-            <h4>Sun</h4>
-
-            <span style="font-size: 50px">☀️</span>
-            <div class="row mb-3">
-              <div class="col">27°C</div>
-              <div class="col">13°C</div>
+            <div class="col-md-6 currentWeather">
+              <!-- Content for the second column (first line) -->
+              <div class="row">
+                <div class="col-md-6">
+                  <img src="" alt="" id="icon" />
+                </div>
+                <div class="col-md-6 properties">
+                  <div>Humidity: <span id="humidity"></span>%</div>
+                  <div>Wind: <span id="wind"></span> km/h</div>
+                  <div id="description"></div>
+                </div>
+              </div>
+              <!-- Content for the second column (second line) -->
+              <h1 id="city">Antananarivo</h1>
+              <h2 id="month">26 July</h2>
             </div>
           </div>
         </div>
       </div>
+
+      <h6>
+        <a href="https://github.com/Batsola/app-project" class="gitHubLink"
+          >Open-source code</a
+        >
+        by Amina Batsola
+      </h6>
     </div>
-
     <script src="src/index.js"></script>
-
-    <h6>
-      <a href="https://github.com/Batsola/app-project" class="gitHubLink"
-        >Open-source code</a
-      >
-      by Amina Batsola
-    </h6>
   </body>
 </html>
