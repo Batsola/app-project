@@ -1,5 +1,4 @@
 function formatDate(timestamp) {
-  //calculate the date
   let now = new Date(timestamp);
   let hours = now.getHours();
   if (hours < 10) {
@@ -47,6 +46,62 @@ function currentMonth() {
 let currentMonthElement = document.querySelector("#month");
 currentMonthElement.innerHTML = currentMonth();
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+            <div class="col-2">
+              <div class="weather-forecast-date">${formatDay(
+                forecastDay.time
+              )}</div>
+
+              <img
+                src="${forecastDay.condition.icon_url}"
+                alt=""
+                width="42"
+              />
+              <div class="weather-forecast-temperatures">
+                <span class="weather-forecast-temperature-max">${Math.round(
+                  forecastDay.temperature.maximum
+                )}°</span>
+                <span class="weather-forecast-temperature-min">${Math.round(
+                  forecastDay.temperature.minimum
+                )}°</span>
+              </div>
+            </div>
+          `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "0b94ffa0fbab4a7377346039a787t35o";
+
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -70,11 +125,14 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
   let apiKey = "fed392df73b956dce9204cf62bb5cbeb";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -86,7 +144,7 @@ function handleSubmit(event) {
 function displayFahreinheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  // Remove the active class from the celsius link
+
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
@@ -113,4 +171,5 @@ fahrenheitLink.addEventListener("click", displayFahreinheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-search("Antananarivo");
+
+search("New York");
