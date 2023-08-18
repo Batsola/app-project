@@ -1,6 +1,5 @@
 body {
   background-color: #2d282b;
-  color: #fff;
 }
 ul {
   margin: 0 auto;
@@ -15,24 +14,27 @@ li {
   top: 72px;
 }
 h1 {
-  background-color: #6f6464;
   padding: 5px;
   font-family: "Carter One", cursive;
   font-size: 30px;
-
+  color: #fff;
   margin: 0 0 37px 0;
+  background-color: black;
+
+  opacity: 0.6;
 }
 
 h6 {
   font-size: 12px;
   padding-top: 10px;
+  color: #fff;
 }
 .weather-app-wrapper {
   max-width: 600px;
   margin: 30px auto;
 }
 .weather-app {
-  background-image: linear-gradient(#ee830f, #322338, #ee830f);
+  background-image: linear-gradient(#f0b86e, #ed7b7b, #836096);
   max-width: 600px;
   margin: 30px auto 0;
   padding: 20px;
@@ -58,14 +60,17 @@ h6 {
 .general {
   border-style: dotted;
   border-width: 5px;
-  border-color: #fff;
+  border-color: black;
   width: 233px;
   height: 244px;
   border-radius: 50%;
-  margin: 0 20px 0 7px;
+  margin: 0 20px 0 10px;
+  padding: 0 20px 0 0;
+  color: #fff;
 }
 #month {
   font-size: 20px;
+  color: #fff;
 }
 .units {
   position: relative;
@@ -76,35 +81,26 @@ h6 {
   font-size: 50px;
   font-family: "Carter One", cursive;
 }
+
 #icon {
-  height: 89px;
-  width: 86px;
+  height: 96px;
+  width: 100px;
   margin: 15px 0 0 0;
 }
 
-.units .active {
-  color: #fff;
-  cursor: default;
-  text-decoration: none;
-}
-
-.units .active:hover {
-  text-decoration: none;
-}
 #description {
   text-transform: capitalize;
 }
 .weather-forecast {
   margin-top: 20px;
   text-align: center;
-  color: #fff;
+  color: black;
 }
 .weather-forecast-date {
-  font-size: 16px;
-  opacity: 0.5;
+  font-size: 18px;
 }
 .weather-forecast-temperature-min {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .weather-forecast-temperatures {
   font-size: 13px;
